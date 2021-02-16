@@ -10,13 +10,13 @@ cursor.execute('''
 	drop table if exists stock_info;
 
 	create table stock_info (
-			index serial,
-			
-			name varchar(255),
-			open_price int,
-			high_price int,
-			low_price int,
-			close_price int,
+			index serial PRIMARY KEY,
+			time timestamp,
+			stock varchar(255),
+			open int,
+			high int,
+			low int,
+			close int,
 			volume int
 	)
 
