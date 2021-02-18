@@ -1,5 +1,5 @@
 # process so far
-pip install psycopg2 pandas tweepy alpha_vantage csv sqlalchemy praw
+pip install requests_html bs4 psaw psycopg2 pandas tweepy alpha_vantage csv sqlalchemy praw
 
 # you can use create-database.py to create a table. But the code in extract_stock_info.py takes care of creating a table if it doesn't exist.
 
