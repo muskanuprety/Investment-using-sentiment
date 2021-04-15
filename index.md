@@ -1,37 +1,51 @@
-## Welcome to GitHub Pages
+# CS488 Capstone Project
+-Muskan Uprety
 
-You can use the [editor on GitHub](https://github.com/muskanuprety/Investment-using-sentiment/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+Link to Video: https://youtu.be/Pz5nZOfiCKw
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
+## Stock Price Prediction Using Online Sentiment
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+The model explained by the diagram given below extracts public posts from users to assess the market sentiment for certain companies. We use certain keywords to extract these public posts and store them in a **CSV** file. In the next step, these posts are processed and fed into the sentiment analysis method which outputs sentiment for each post.
 
-```markdown
-Syntax highlighted code block
+The output of this model, combined with some other data like date and time posted, market momentum for stock prices, current prices etc. are fed into a SVM classifier which predicts whether the price of the stock is going up or down in the future.
 
-# Header 1
-## Header 2
-### Header 3
+I will be updating the timeframe to analyze the time if/ how long social media posts have effect on prices.
 
-- Bulleted
-- List
 
-1. Numbered
-2. List
+## Running the process
 
-**Bold** and _Italic_ and `Code` text
+First we need to get the dependencies for this project. There is a file called ```requirements.txt``` that has all the requirements for this project. Please install all the dependencies from there.
 
-[Link](url) and ![Image](src)
+Next, enter the necessary information in credentials.py using ```vim``` command:
+```
+vim credentials.py
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+After that is done run ```process.sh``` file which will set up all the sql tables, download the required data, and make sure you are ready for running the model. 
+Please refer to ```process.sh``` to see what it is doing as it is full of comments to guide you. You can make the changes you want (ex. picking different company tickers, changing keywords for text scraping etc.). 
 
-### Jekyll Themes
+To run the file, simply type the following in your terminal:
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/muskanuprety/Investment-using-sentiment/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+```
+./process.sh
+```
 
-### Support or Contact
+Final step is run the sentiment_analysis.py file and catch the output in a txt file. To do so, type the following in your terminal:
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+```
+python3 sentiment_analysis.py > outout.txt
+```
+
+Note: this step takes a while to run. If you dont want to stare and wait for the process to finish, use the ```nohup``` command like this:
+
+```
+nohup python3 sentiment_analysis.py &
+```
+
+This will return you your terminal, and will create a file ```nohup.out``` that has the output once the process is complete.
+
+
+## Software Architecture Diagram
+
+![title](capstone.png)
