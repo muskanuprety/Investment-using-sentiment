@@ -1,7 +1,7 @@
 # CS488 Capstone Project
 -Muskan Uprety
 
-Link to Video: https://youtu.be/Pz5nZOfiCKw
+Link to Video: [Here](https://youtu.be/Pz5nZOfiCKw)
 
 
 ## Stock Price Prediction Using Online Sentiment
@@ -45,7 +45,8 @@ nohup python3 sentiment_analysis.py &
 
 This will return you your terminal, and will create a file ```nohup.out``` that has the output once the process is complete.
 
-
+<!---
 ## Software Architecture Diagram
 
 ![title](capstone.png)
+--->
